@@ -1,10 +1,5 @@
-window.addEventListener("DOMContentLoaded", function(){
+$(doucment).ready(function(){
 
-	//getElementById Function
-	function s(x){
-		var theElement = document.getElementById(x);
-		return theElement;
-	};
 
 	//Create select field element and populate with options.
 
@@ -28,17 +23,16 @@ window.addEventListener("DOMContentLoaded", function(){
 	function toggleControls(n){
 		switch(n){
 			case "on":
-				s('order').style.display = "none";
-				s('clear').style.display = "inline";
-				s('displayLink').style.display = "none";
-				s('addNew').style.display = "inline";
+				$('order').hide;
+				$('clear').show;
+				$('displayLink').hide;
+				$('addNew').show;
 				break;
-			case "off":
-				s('order').style.display = "block";
-				s('clear').style.display = "inline";
-				s('displayLink').style.display = "inline";
-				s('addNew').style.display = "none";
-				s('items').style.display = "none";
+			case "off":				
+				$('clear').show;
+				$('displayLink').hide;
+				$('addNew').hide;
+				$('items').hide;
 				break;
 			default:
 				return false;
