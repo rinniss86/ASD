@@ -51,8 +51,8 @@ $(doucment).ready(function(){
 		}
 
 	function getCheckBoxValue(){
-		if(s('fav').checked){
-			favValue = s('fav').value;
+		if($('#fav').checked){
+			favValue = $('#fav').value;
 		}else{
 			favValue = "No";
 		}
@@ -74,16 +74,15 @@ $(doucment).ready(function(){
  		console.log(id);
  		
  		var item 				= {};
- 			  item.name			= ["Name: ", s('name').value]; 		
- 			  //item.pword		= ["Password: ", $('pword').value]; 		
- 			  item.email		= ["Email: ", s('email').value];			
- 			  item.age			= ["Age: ", s('age').value];
+ 			  item.name			= ["Name: ", $'(#name')]; 		 		
+ 			  item.email		= ["Email: ", $('#email')];			
+ 			  item.age			= ["Age: ", $('#age')];
  			  item.crave		= ["Craving: ", craveValue];
  			  item.fav			= ["Favorite? :", favValue];
- 			  item.hunger		= ["How Hungry: ", s('hungry').value];
- 			  item.date			= ["Date:", s('date').value];
- 			  item.select		= ["Where: ", s('select').value];
- 			  item.comment		= ["Instructions: ", s('instructions').value];
+ 			  item.hunger		= ["How Hungry: ", $('#hungry')];
+ 			  item.date			= ["Date:", $('#date')];
+ 			  item.select		= ["Where: ", $('#select')];
+ 			  item.comment		= ["Instructions: ", $('#instructions')];
  			  
  			  
  			  	
@@ -101,14 +100,35 @@ $(doucment).ready(function(){
 		}
 		//Write Data from Local Storage to Browser.
 		//var makeDiv = document.createElement('div');
-		var makeDiv = document.getElementById('previewInfo');
+		
+		var makeDiv = $('#showOrder');
+		makeDiv.attr("data-role", "content");
+		makeDiv.append("<ul id=" + "orderList" + "></ul>");
+		var makeList= $('#orderList');
+		makeList.attr({
+			dataRole: "listview",
+			dataInset: "true",
+			dataFilter: "true"
+		});
+		/*var makeDiv = document.getElementById('previewInfo');
 		makeDiv.setAttribute("id", "items");
 		var makeList = document.createElement('ul');
 		makeDiv.appendChild(makeList);
-		document.body.appendChild(makeDiv);
+		document.body.appendChild(makeDiv);*/
+		
+		
 		//$('items').style.display = "block";
 		for(var i=0, len=localStorage.length; i<len; i++){
-			var makeli = document.createElement('li');
+			var makeLi = $("<li></li>");
+			var linksLi = $("<li></li>");
+			makeLis.append(makeLi);
+			var key = localStorage.key(i);
+			var value = locaStorage.getItem(key);
+			var obj = JSON.parse(value);
+			var makeSubList = $('<ul></ul>');
+			makeLi.append(makeSubList); 
+			
+			/*var makeli = document.createElement('li');
 			var linksLi = document.createElement('li');
 			makeList.appendChild(makeli);
 			var key = localStorage.key(i);
@@ -117,27 +137,40 @@ $(doucment).ready(function(){
 			var obj = JSON.parse(value);
 			var makeSubList = document.createElement('ul');
 			makeli.appendChild(makeSubList);
-			getImage(obj.select[1], makeSubList);
+			getImage(obj.select[1], makeSubList);*/
+			
 			for(var n in obj){
-				console.log(obj[n]);
+				var makeSubLi = $("<li></li>");
+				makeSubList.append(makeSubLi);
+				var optSubText = obj[n][0]+" "+obj[n][1];
+				makeSubLi.innerHTML = optSubText;
+				makeSubLi.append(linksLi);
+				}
+				makeItemLinks(localStorage.key(i), linksLi);
+				/*console.log(obj[n]);
 				var makeSubli = document.createElement('li');
 				makeSubList.appendChild(makeSubli);
 				var optSubText = obj[n][0]+" "+obj[n][1];
 				makeSubli.innerHTML = optSubText;
 				makeSubList.appendChild(linksLi);
 			}
-			makeItemLinks(localStorage.key(i), linksLi); //Create our edit and delete buttons/links for each item in local storage.
+			makeItemLinks(localStorage.key(i), linksLi);*/ //Create our edit and delete buttons/links for each item in local storage.
 		}
 	}
 
 	//Get the Image For the Right Category
 	function getImage(catName, makeSubList){
-	console.log("category name is:" + catName);
+		var imageLI = $("<li></li>");
+		makeSubList.append(imageLi);
+		var newImg = $("<img></img>");
+		//var setSrc = $(
+	
+	/*console.log("category name is:" + catName);
 		var imageLi = document.createElement('li');
 		makeSubList.appendChild(imageLi);
 		var newImg = document.createElement('img');
 		var setSrc = newImg.setAttribute("src","images/"+ catName +".png");
-		imageLi.appendChild(newImg);
+		imageLi.appendChild(newImg); */
 	}
 
 
@@ -189,10 +222,10 @@ $(doucment).ready(function(){
 		toggleControls("off");
 
 		//populate the form fields with the current localStorage values.
-		s('name').value = item.name[1];
+		$('#name') = item.name[1];
 		//$('pword').value = item.pword[1];
-		s('email').value = item.email[1];
-		s('age').value = item.age[1];
+		$('#email') = item.email[1];
+		$('#age') = item.age[1];
 		var radios = document.forms[0].food;
 		for(var i=0; i<radios.length; i++){
 			if(radios[i].value == "chinese" && item.crave[1] == "chinese"){
@@ -213,24 +246,24 @@ $(doucment).ready(function(){
 			}
 
 		if(item.fav[1] == "Yes"){
-			s('fav').setAttribute("checked", "checked");
+			$('fav').setAttribute("checked", "checked");
 		}
 
 
 		if(item.fav[1] == "Yes"){
-			s('fav').setAttribute("checked", "checked");
+			$('fav').setAttribute("checked", "checked");
 		}
 		}	
 
-		s('date').value = item.date[1];
-		s('select').value = item.select[1];
-		s('instructions').value = item.comment[1];
+		$('#date') = item.date[1];
+		$('#select') = item.select[1];
+		$('#instructions') = item.comment[1];
 
 		//Remove the initial listener from the input 'save lunch ' button
 		save.removeEventListener("click", storeData);
 		//change Submit Button Value to Edit Button
-		s('submit').value = "Edit Order";
-		var editSubmit = s('submit');
+		$('#submit') = "Edit Order";
+		var editSubmit = $('#submit');
 		//save the key value established in this function as a property of the editSubmit event
 		//so we can use that value when we save the data we edited.
 		editSubmit.addEventListener("click", validate);
@@ -267,7 +300,7 @@ $(doucment).ready(function(){
 	console.log(data);
 };
 
-$(document).ready(function(){
+//validation
 
 	var oform = $('#form');
 	
@@ -280,97 +313,27 @@ $(document).ready(function(){
 			var data = oform.serializeArray();
 			parseOrderForm(data);
 		}
-	});
-
+	
 
 
 });
 
 
 
-	/*function validate(e){
-		//define the elements we want to check
-		var getName = s('name');
-		var getEmail = s('email');
-		var getDate = s('date');
-		var getGroup = s('group');
-		
-		//Reset Error Messages
-		errMsg.innerHTML = "";
-			getGroup.style.border = "1 px solid black";
-			getName.style.border = "1 px solid black";
-			getEmail.style.border = "1 px solid black";
-			getDate.style.border = "1 px solid black";
-		//Get Error Message
-		var messageAry = [];
-		//Group Validation
-		if(getGroup.value ==="--Where to Eat--"){
-			var groupError = "Choose where to eat.";
-			getGroup.style.border = "1px solid red";
-			messageAry.push(groupError);
-		}
-		//Name Validation
-		if(getName.value ===""){
-			var nameError = "Please enter a name."
-			getName.style.border = "1 px solid red";
-			messageAry.push(nameError);
-		}
-		
-		//Email Validation
-		var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-		if(!(re.exec(getEmail.value))){
-			var emailError = "Please enter a valid email address.";
-			getEmail.style.border = "1px solid red";
-			messageAry.push(emailError);
-		}
-		//Date Validation
-		if(getDate.value ==="date"){
-		var dateError = "Enter a date";
-		getDate.style.border = "1 px solid red";
-		messageAry.push(dateError);
-		}
-		
-		//If there were errors, display them on the screen
-		if(messageAry.length >= 1){
-			for(var i = 0, j = messageAry.length; i < j; i++){
-				var txt = document.createElement('li');
-				txt.innerHTML = messageAry[i];
-				errMsg.appendChild(txt);
-			}
-			e.preventDefault();
-		return false;
-	}else{
-	//If all is OK, save our data! Send the key value (which came from the editData Function).
-	// Remember this key value was passed through the editSubmit event listener as a property.
-		storeData(this.key);
-	}
-		
-	}
-	
-	//Slider Value Displayed
-	function hungerLevel(){
-		hVal = s('hungry').value;
-			console.log(hVal);
-		var makeDiv = document.getElementById("hungerNum");
-		makeDiv.innerHTML = hVal;
-	}
-*/
-
-
 	//Variable defaults
 	var whereToEat = ["--Where to Eat--", "Sit Down", "Pick Up", "Delivery", "Cook Your Own"],
 		craveVaule,
 		faveValue = "No",
-		errMsg = s('errors');
+		errMsg = $('errors');
 	//makeCats();
 
 	//Set Links & Submit Click Events
-	var displayLink = s('displayLink');
+	var displayLink = $('displayLink');
 	displayLink.addEventListener("click", getData);
-	var clearLink = s('clear');
+	var clearLink = $('clear');
 	clearLink.addEventListener("click", clearLocal); 
-	var save = s('submit');
+	var save = $('submit');
 	//save.addEventListener("click", validate);
-	var hungerNum = s('hungry');
+	var hungerNum = $('hungry');
 	//hungerNum.addEventListener("change", hungerLevel);
 });
