@@ -1,4 +1,4 @@
-$(doucment).ready(function(){
+$(document).ready(function(){
 
 
 	//Create select field element and populate with options.
@@ -74,7 +74,7 @@ $(doucment).ready(function(){
  		console.log(id);
  		
  		var item 				= {};
- 			  item.name			= ["Name: ", $'(#name')]; 		 		
+ 			  item.name			= ["Name: ", $('#name')]; 		 		
  			  item.email		= ["Email: ", $('#email')];			
  			  item.age			= ["Age: ", $('#age')];
  			  item.crave		= ["Craving: ", craveValue];
