@@ -1,4 +1,4 @@
-$(doucment).ready(function(){
+$('#order').live('pageinit', function(){
 
 
 	//Create select field element and populate with options.
@@ -23,16 +23,16 @@ $(doucment).ready(function(){
 	function toggleControls(n){
 		switch(n){
 			case "on":
-				$('order').hide;
-				$('clear').show;
-				$('displayLink').hide;
-				$('addNew').show;
+				$('#order').hide;
+				$('#clear').show;
+				$('#displayLink').hide;
+				$('#addNew').show;
 				break;
 			case "off":				
-				$('clear').show;
-				$('displayLink').hide;
-				$('addNew').hide;
-				$('items').hide;
+				$('#clear').show;
+				$('#displayLink').hide;
+				$('#addNew').hide;
+				$('#items').hide;
 				break;
 			default:
 				return false;
@@ -42,7 +42,7 @@ $(doucment).ready(function(){
 	function storeData (key){
 
 		function getSelectedRadio(){
-			var radios = document.forms[0].food;
+			var radios = $('form');
 			for(var i=0; i<radios.length; i++){
 				if(radios[i].checked){
 				craveValue = radios[i].value;
@@ -74,7 +74,7 @@ $(doucment).ready(function(){
  		console.log(id);
  		
  		var item 				= {};
- 			  item.name			= ["Name: ", $'(#name')]; 		 		
+ 			  item.name			= ["Name: ", $('#name')]; 		 		
  			  item.email		= ["Email: ", $('#email')];			
  			  item.age			= ["Age: ", $('#age')];
  			  item.crave		= ["Craving: ", craveValue];
@@ -246,12 +246,12 @@ $(doucment).ready(function(){
 			}
 
 		if(item.fav[1] == "Yes"){
-			$('fav').setAttribute("checked", "checked");
+			$('#fav').setAttribute("checked", "checked");
 		}
 
 
 		if(item.fav[1] == "Yes"){
-			$('fav').setAttribute("checked", "checked");
+			$('#fav').setAttribute("checked", "checked");
 		}
 		}	
 
@@ -324,16 +324,16 @@ $(doucment).ready(function(){
 	var whereToEat = ["--Where to Eat--", "Sit Down", "Pick Up", "Delivery", "Cook Your Own"],
 		craveVaule,
 		faveValue = "No",
-		errMsg = $('errors');
+		errMsg = $('#errors');
 	//makeCats();
 
 	//Set Links & Submit Click Events
-	var displayLink = $('displayLink');
-	displayLink.addEventListener("click", getData);
-	var clearLink = $('clear');
-	clearLink.addEventListener("click", clearLocal); 
-	var save = $('submit');
+	var displayLink = $('#displayLink');
+	//displayLink.addEventListener("click", getData);
+	var clearLink = $('#clear');
+	//clearLink.addEventListener("click", clearLocal); 
+	var save = $('#submit');
 	//save.addEventListener("click", validate);
-	var hungerNum = $('hungry');
+	var hungerNum = $('#hungry');
 	//hungerNum.addEventListener("change", hungerLevel);
 });
