@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-$('#order').live('pageinit', function(){
-=======
 //Rich Inniss
 //ASD 1205
->>>>>>> origin/master
 
 //Variables
 	var whereToEat = ["--Where to Eat--", "Sit Down", "Pick Up", "Delivery", "Cook Your Own"],
@@ -70,17 +66,10 @@ $('#form').live('pageinit', function(){			//Start
 
 	function storeData (key){		//storeData Start
 
-<<<<<<< HEAD
-		function getSelectedRadio(){
-			var radios = $('form');
-			for(var i=0; i<radios.length; i++){
-				if(radios[i].checked){
-=======
 		function getSelectedRadio(){ //getSelectedRadio Start
 			var radios = document.forms[0].food;
 			for(var i=0; i<radios.length; i++){ //radio loop start
 				if(radios[i].checked){			//radio if start
->>>>>>> origin/master
 				craveValue = radios[i].value;
 				}					//radio if End
 			}						//radio Loop End
@@ -94,10 +83,10 @@ $('#form').live('pageinit', function(){			//Start
 			favValue = "No";
 		}							// GCBV else End
 	}								// GCBV End
-	
-	
+
+
 		//If there is no key, this means this is a brand new item and we need a new key.
-		
+
 		if(!key){									//if Start
  		var id = Math.floor(Math.random()*9999999);
  		}											//if End
@@ -140,7 +129,7 @@ $('#form').live('pageinit', function(){			//Start
 		}							//localStorage loop end
 		//Write Data from Local Storage to Browser.
 		//var makeDiv = document.createElement('div');
-		
+
 		var makeDiv = $('#showOrder');
 		makeDiv.attr("data-role", "content");
 		makeDiv.append("<ul id=" + "orderList" + "></ul>");
@@ -150,10 +139,10 @@ $('#form').live('pageinit', function(){			//Start
 			dataInset: "true",
 			dataFilter: "true"
 		});							//makeList End
-		
-		
-		
-		
+
+
+
+
 		//$('items').style.display = "block";
 		for(var i=0, len=localStorage.length; i<len; i++){		//For Loop Start
 			var makeLi = $("<li></li>");
@@ -164,9 +153,9 @@ $('#form').live('pageinit', function(){			//Start
 			var obj = JSON.parse(value);
 			var makeSubList = $('<ul></ul>');
 			makeLi.append(makeSubList); 
-			
-			
-			
+
+
+
 			for(var n in obj){						//for loop in a for loop start
 				var makeSubLi = $("<li></li>");
 				makeSubList.append(makeSubLi);
@@ -185,7 +174,7 @@ $('#form').live('pageinit', function(){			//Start
 		makeSubList.append(imageLi);
 		var newImg = $("<img></img>");
 		//var setSrc = $(
-	
+
 	/*console.log("category name is:" + catName);
 		var imageLi = document.createElement('li');
 		makeSubList.appendChild(imageLi);
@@ -270,25 +259,13 @@ $('#form').live('pageinit', function(){			//Start
 			}																		//other else ends
 		};																			//editItem radio loop ends
 
-<<<<<<< HEAD
-		if(item.fav[1] == "Yes"){
-			$('#fav').setAttribute("checked", "checked");
-		}
-
-
-		if(item.fav[1] == "Yes"){
-			$('#fav').setAttribute("checked", "checked");
-		}
-		}	
-=======
 		if(item.fav[1] == "Yes"){								//item.fav if start
 			$('#fav').setAttribute("checked", "checked");
 		}														//item.fav if end
 
 
-													
-		
->>>>>>> origin/master
+
+
 
 		$('#date') = item.date[1];
 		$('#select') = item.select[1];
@@ -344,40 +321,20 @@ $('#form').live('pageinit', function(){			//Start
 
 //validation
 
-	
-	
+
+
 
 	oform.validate({											// Form Validation Start
 		invalidHandler: function(form, validator){				// invalidHandler Start
-			
+
 					},											// invalidHandler End
 		submitHandler: function(){								//submitHandler Start
 			var data = oform.serializeArray();
 			parseOrderForm(data);
 		}														//submitHandler End
-		
-		
+
+
 	});															//Form Validation End
 
 
-<<<<<<< HEAD
-	//Variable defaults
-	var whereToEat = ["--Where to Eat--", "Sit Down", "Pick Up", "Delivery", "Cook Your Own"],
-		craveVaule,
-		faveValue = "No",
-		errMsg = $('#errors');
-	//makeCats();
-
-	//Set Links & Submit Click Events
-	var displayLink = $('#displayLink');
-	//displayLink.addEventListener("click", getData);
-	var clearLink = $('#clear');
-	//clearLink.addEventListener("click", clearLocal); 
-	var save = $('#submit');
-	//save.addEventListener("click", validate);
-	var hungerNum = $('#hungry');
-	//hungerNum.addEventListener("change", hungerLevel);
-});
-=======
 });  				// End
->>>>>>> origin/master
