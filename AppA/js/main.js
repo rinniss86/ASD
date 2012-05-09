@@ -121,7 +121,7 @@ $('#form').live('pageinit', function(){			//Start
  		alert("Form Submitted");
  	 
 
-	function getData(){				//getData Start
+	$("#displayLink").bind('click', function(){				//getData Start
 		toggleControls("on");
 		if(localStorage.length === 0){		//localStorage loop start
 			alert("There is no data in Local Storage so default data was added.");
@@ -140,11 +140,7 @@ $('#form').live('pageinit', function(){			//Start
 			dataFilter: "true"
 		});							//makeList End
 		
-		/*var makeDiv = document.getElementById('previewInfo');
-		makeDiv.setAttribute("id", "items");
-		var makeList = document.createElement('ul');
-		makeDiv.appendChild(makeList);
-		document.body.appendChild(makeDiv);*/
+		
 		
 		
 		//$('items').style.display = "block";
@@ -158,16 +154,7 @@ $('#form').live('pageinit', function(){			//Start
 			var makeSubList = $('<ul></ul>');
 			makeLi.append(makeSubList); 
 			
-			/*var makeli = document.createElement('li');
-			var linksLi = document.createElement('li');
-			makeList.appendChild(makeli);
-			var key = localStorage.key(i);
-			var value = localStorage.getItem(key);
-			//Convert the string from local storage valueback to an object using JSON.parse()
-			var obj = JSON.parse(value);
-			var makeSubList = document.createElement('ul');
-			makeli.appendChild(makeSubList);
-			getImage(obj.select[1], makeSubList);*/
+			
 			
 			for(var n in obj){						//for loop in a for loop start
 				var makeSubLi = $("<li></li>");
@@ -177,14 +164,7 @@ $('#form').live('pageinit', function(){			//Start
 				makeSubLi.append(linksLi);
 				};									//for loop in a for loop end
 				makeItemLinks(localStorage.key(i), linksLi);
-				/*console.log(obj[n]);
-				var makeSubli = document.createElement('li');
-				makeSubList.appendChild(makeSubli);
-				var optSubText = obj[n][0]+" "+obj[n][1];
-				makeSubli.innerHTML = optSubText;
-				makeSubList.appendChild(linksLi);
-			}
-			makeItemLinks(localStorage.key(i), linksLi);*/ //Create our edit and delete buttons/links for each item in local storage.
+				 //Create our edit and delete buttons/links for each item in local storage.
 		}											//For Loop End
 	};												//getData End
 
@@ -328,7 +308,7 @@ $('#form').live('pageinit', function(){			//Start
 	};															//clearLocal End
 
 		//Click Event Function
-		$('#submit').bind('click' , function(){ 				//Submit Click Event Start		
+		$('#submit').on('click' , function(){ 				//Submit Click Event Start		
 			alert('working');
 			edit
 			return false;
