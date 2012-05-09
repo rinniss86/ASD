@@ -319,7 +319,7 @@ $('#form').live('pageinit', function(){			//Start
 	console.log(data);
 	};	*/														//parseOrderForm End
 
-//validation
+//validation.
 
 	
 	
