@@ -1,4 +1,4 @@
-{	request : [
+{	"request" : [
 	{
 		"pName": ["Name:", "Rich"],
 		"email": ["Email:", "rinniss86@fullsail.edu"],
