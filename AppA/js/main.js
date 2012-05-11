@@ -1,30 +1,10 @@
-//Rich Inniss
-//ASD 1205
+window.addEventListener("DOMContentLoaded", function(){
 
-//Variables
-	var whereToEat = ["--Where to Eat--", "Sit Down", "Pick Up", "Delivery", "Cook Your Own"],
-		craveVaule,
-		faveValue = "No",
-		errMsg = $('#errors');
-
-	//displayLink.addEventListener("click", getData);
-	var clearLink = $('#clear');
-	//clearLink.addEventListener("click", clearLocal); 
-	var save = $('#submit');
-	//save.addEventListener("click", validate);
-	var hungerNum = $('#hungry');
-	//hungerNum.addEventListener("change", hungerLevel);
-	var displayLink = $('#displayLink');
-	var oform = $("form");
-
-
-$('#form').live('pageinit', function(){			//Start
-
-
-
-		save.bind("click" , storeData);
-		displayLink.bind("click" , getData);
-		clearLink.bind("click" , clearLocal);
+	//getElementById Function
+	function s(x){
+		var theElement = document.getElementById(x);
+		return theElement;
+	};
 
 	//Create select field element and populate with options.
 
@@ -45,57 +25,54 @@ $('#form').live('pageinit', function(){			//Start
 	};*/
 
 
-	function toggleControls(n){		// toggleControls Start
-		switch(n){					// switch Start
+	function toggleControls(n){
+		switch(n){
 			case "on":
-				$('#order').hide;
-				$('#clear').show;
-				$('#displayLink').hide;
-				$('#addNew').show;
+				s('order').style.display = "none";
+				s('clear').style.display = "inline";
+				s('displayLink').style.display = "none";
+				s('addNew').style.display = "inline";
 				break;
-			case "off":				
-				$('#clear').show;
-				$('#displayLink').hide;
-				$('#addNew').hide;
-				$('#items').hide;
+			case "off":
+				s('order').style.display = "block";
+				s('clear').style.display = "inline";
+				s('displayLink').style.display = "inline";
+				s('addNew').style.display = "none";
+				s('items').style.display = "none";
 				break;
 			default:
 				return false;
-		}							// switch End
-	}								//toggleControls End
+		}
+	}
 
-	function storeData (key){		//storeData Start
+	function storeData (key){
 
-		function getSelectedRadio(){ //getSelectedRadio Start
+		function getSelectedRadio(){
 			var radios = document.forms[0].food;
-			for(var i=0; i<radios.length; i++){ //radio loop start
-				if(radios[i].checked){			//radio if start
+			for(var i=0; i<radios.length; i++){
+				if(radios[i].checked){
 				craveValue = radios[i].value;
-				}					//radio if End
-			}						//radio Loop End
-		}							//getSelectedRadio End
+				}
+			}
+		}
 
-	function getCheckBoxValue(){ 	//getCheckBoxValue Start
-		if($('#fav').checked){		//getCheckBoxValue Loop Start
-			favValue = $('#fav').value;
-			}						// GCBV if End
-			else{					// GCBV else start	
+	function getCheckBoxValue(){
+		if(s('fav').checked){
+			favValue = s('fav').value;
+		}else{
 			favValue = "No";
-		}							// GCBV else End
-	}								// GCBV End
-
-
+		}
+	}
 		//If there is no key, this means this is a brand new item and we need a new key.
+		if(!key){
 
-		if(!key){									//if Start
  		var id = Math.floor(Math.random()*9999999);
- 		}											//if End
- 		else{										//else Start
+ 		}else{
  			//Set the id to the existing key we;re editing so that it will save over the data.
  			//The key is the same key that's been passed along from the editSubmit event handler
  			//to the validate function, and then passed here into the storeData function.
  			id = key;
- 		}											//else End
+ 		}
  		// Gather up all our form field values and store in an object.
  		//Object properties contain array with the form label and input value.
  		getSelectedRadio();
@@ -103,15 +80,16 @@ $('#form').live('pageinit', function(){			//Start
  		console.log(id);
  		
  		var item 				= {};
- 			  item.name			= ["Name: ", $('#name')]; 		 		
- 			  item.email		= ["Email: ", $('#email')];			
- 			  item.age			= ["Age: ", $('#age')];
+ 			  item.name			= ["Name: ", s('name').value]; 		
+ 			  //item.pword		= ["Password: ", $('pword').value]; 		
+ 			  item.email		= ["Email: ", s('email').value];			
+ 			  item.age			= ["Age: ", s('age').value];
  			  item.crave		= ["Craving: ", craveValue];
  			  item.fav			= ["Favorite? :", favValue];
- 			  item.hunger		= ["How Hungry: ", $('#hungry')];
- 			  item.date			= ["Date:", $('#date')];
- 			  item.select		= ["Where: ", $('#select')];
- 			  item.comment		= ["Instructions: ", $('#instructions')];
+ 			  item.hunger		= ["How Hungry: ", s('hungry').value];
+ 			  item.date			= ["Date:", s('date').value];
+ 			  item.select		= ["Where: ", s('select').value];
+ 			  item.comment		= ["Instructions: ", s('instructions').value];
  			  
  			  
  			  	
@@ -119,85 +97,70 @@ $('#form').live('pageinit', function(){			//Start
   		//save to local storage: use stringify to convert 
  		localStorage.setItem(id, JSON.stringify(item));
  		alert("Form Submitted");
- 	 
+ 	}; 
 
-	$("#displayLink").bind('click', function(){				//getData Start
+	function getData(){
 		toggleControls("on");
-		if(localStorage.length === 0){		//localStorage loop start
+		if(localStorage.length === 0){
 			alert("There is no data in Local Storage so default data was added.");
 			autoFillData();
-		}							//localStorage loop end
+		}
 		//Write Data from Local Storage to Browser.
 		//var makeDiv = document.createElement('div');
-
-		var makeDiv = $('#showOrder');
-		makeDiv.attr("data-role", "content");
-		makeDiv.append("<ul id=" + "orderList" + "></ul>");
-		var makeList= $('#orderList');
-		makeList.attr({				//makeList start
-			dataRole: "listview",
-			dataInset: "true",
-			dataFilter: "true"
-		});							//makeList End
-
-
-
-
+		var makeDiv = document.getElementById('previewInfo');
+		makeDiv.setAttribute("id", "items");
+		var makeList = document.createElement('ul');
+		makeDiv.appendChild(makeList);
+		document.body.appendChild(makeDiv);
 		//$('items').style.display = "block";
-		for(var i=0, len=localStorage.length; i<len; i++){		//For Loop Start
-			var makeLi = $("<li></li>");
-			var linksLi = $("<li></li>");
-			makeLis.append(makeLi);
+		for(var i=0, len=localStorage.length; i<len; i++){
+			var makeli = document.createElement('li');
+			var linksLi = document.createElement('li');
+			makeList.appendChild(makeli);
 			var key = localStorage.key(i);
-			var value = locaStorage.getItem(key);
+			var value = localStorage.getItem(key);
+			//Convert the string from local storage valueback to an object using JSON.parse()
 			var obj = JSON.parse(value);
-			var makeSubList = $('<ul></ul>');
-			makeLi.append(makeSubList); 
-
-
-
-			for(var n in obj){						//for loop in a for loop start
-				var makeSubLi = $("<li></li>");
-				makeSubList.append(makeSubLi);
+			var makeSubList = document.createElement('ul');
+			makeli.appendChild(makeSubList);
+			getImage(obj.select[1], makeSubList);
+			for(var n in obj){
+				console.log(obj[n]);
+				var makeSubli = document.createElement('li');
+				makeSubList.appendChild(makeSubli);
 				var optSubText = obj[n][0]+" "+obj[n][1];
-				makeSubLi.innerHTML = optSubText;
-				makeSubLi.append(linksLi);
-				};									//for loop in a for loop end
-				makeItemLinks(localStorage.key(i), linksLi);
-				 //Create our edit and delete buttons/links for each item in local storage.
-		}											//For Loop End
-	};												//getData End
+				makeSubli.innerHTML = optSubText;
+				makeSubList.appendChild(linksLi);
+			}
+			makeItemLinks(localStorage.key(i), linksLi); //Create our edit and delete buttons/links for each item in local storage.
+		}
+	}
 
 	//Get the Image For the Right Category
-	function getImage(catName, makeSubList){		//getImage Start
-		var imageLI = $("<li></li>");
-		makeSubList.append(imageLi);
-		var newImg = $("<img></img>");
-		//var setSrc = $(
-
-	/*console.log("category name is:" + catName);
+	function getImage(catName, makeSubList){
+	console.log("category name is:" + catName);
 		var imageLi = document.createElement('li');
 		makeSubList.appendChild(imageLi);
 		var newImg = document.createElement('img');
 		var setSrc = newImg.setAttribute("src","images/"+ catName +".png");
-		imageLi.appendChild(newImg); */
-	}												//getImage End
+		imageLi.appendChild(newImg);
+	}
 
 
 	//Auto Populate Local Storage
-	function autoFillData(){						//autoFillData Start
+	function autoFillData(){
 		//The actual JSON OBJECT data required for this to work is coming from our json.js file, which is laoded from our HTML page
 		//Store the JSON OBJECT into Local Storage.
-		for(var n in json){							//autoFillData for loop start
+		for(var n in json){
 			var id = Math.floor(Math.random()*9999999);
 			localStorage.setItem(id, JSON.stringify(json[n]));
-		}											//autoFillData for loop end
+		}
 
-	}												//autoFilldata End
+	}
 
 	//Make Item Links
 	//Create the edit and delete links for each stored item when displayed.
-	function makeItemLinks(key, linksLi){			//makeItemLinks Start
+	function makeItemLinks(key, linksLi){
 	//add edit single item link
 		var editLink = document.createElement('a');
 		editLink.href = "#";
@@ -221,9 +184,9 @@ $('#form').live('pageinit', function(){			//Start
 		deleteLink.innerHTML = deleteText;
 		linksLi.appendChild(deleteLink);
 
-	}												//makeItemLinks End
+	}
 
-	function editItem(){							//editItem Start
+	function editItem(){
 		//grab the data from our item local storage.
 		var value = localStorage.getItem(this.key);
 		var item = JSON.parse(value);
@@ -232,109 +195,188 @@ $('#form').live('pageinit', function(){			//Start
 		toggleControls("off");
 
 		//populate the form fields with the current localStorage values.
-		$('#name') = item.name[1];
+		s('name').value = item.name[1];
 		//$('pword').value = item.pword[1];
-		$('#email') = item.email[1];
-		$('#age') = item.age[1];
+		s('email').value = item.email[1];
+		s('age').value = item.age[1];
 		var radios = document.forms[0].food;
-		for(var i=0; i<radios.length; i++){			//editItem raido loop start
-			if(radios[i].value == "chinese" && item.crave[1] == "chinese"){	//chinese if start
+		for(var i=0; i<radios.length; i++){
+			if(radios[i].value == "chinese" && item.crave[1] == "chinese"){
+				radios[i].setAttribute("checked", "checked");
+			}else if(radios[i].value == "spanish" && item.crave[1] == "spanish"){
 				radios[i].setAttribute("checked", "checked");
 			}
-			else if(radios[i].value == "spanish" && item.crave[1] == "spanish"){	//chinese if end, spanish else start
-				radios[i].setAttribute("checked", "checked");
-			}																		//spanish else ends
 
-			if(radios[i].value == "indian" && item.crave[1] == "indian"){			//indian if starts
+			if(radios[i].value == "indian" && item.crave[1] == "indian"){
 				radios[i].setAttribute("checked", "checked");
-			}
-			else if(radios[i].value == "american" && item.crave[1] == "american"){	//indian if ends, american else start
-				radios[i].setAttribute("checked", "checked");
-			}																		//american else ends
-			if(radios[i].value == "italian" && item.crave[1] == "italian"){			//italian if starts
+			}else if(radios[i].value == "american" && item.crave[1] == "american"){
 				radios[i].setAttribute("checked", "checked");
 			}
-			else if(radios[i].value == "other" && item.crave[1] == "other"){		//italian if ends, other else starts
+			if(radios[i].value == "italian" && item.crave[1] == "italian"){
 				radios[i].setAttribute("checked", "checked");
-			}																		//other else ends
-		};																			//editItem radio loop ends
+			}else if(radios[i].value == "other" && item.crave[1] == "other"){
+				radios[i].setAttribute("checked", "checked");
+			}
 
-		if(item.fav[1] == "Yes"){								//item.fav if start
-			$('#fav').setAttribute("checked", "checked");
-		}														//item.fav if end
-
-
-
+		if(item.fav[1] == "Yes"){
+			s('fav').setAttribute("checked", "checked");
+		}
 
 
-		$('#date') = item.date[1];
-		$('#select') = item.select[1];
-		$('#instructions') = item.comment[1];
+		if(item.fav[1] == "Yes"){
+			s('fav').setAttribute("checked", "checked");
+		}
+		}	
+
+		s('date').value = item.date[1];
+		s('select').value = item.select[1];
+		s('instructions').value = item.comment[1];
 
 		//Remove the initial listener from the input 'save lunch ' button
 		save.removeEventListener("click", storeData);
 		//change Submit Button Value to Edit Button
-		$('#submit') = "Edit Order";
-		var editSubmit = $('#submit');
+		s('submit').value = "Edit Order";
+		var editSubmit = s('submit');
 		//save the key value established in this function as a property of the editSubmit event
 		//so we can use that value when we save the data we edited.
 		editSubmit.addEventListener("click", validate);
 		editSubmit.key = this.key;
-	};															//editItem End
+	}
 
-	function deleteItem(){										//deleteItem Start
+	function deleteItem(){
 		var ask = confirm("Are you sure you want to delete this order?");
-		if(ask){												//deleteItem if Start
+		if(ask){
 			localStorage.removeItem(this.key);
 			alert("Order was deleted.");
 			window.location.reload();
-		}														//deleteItem if end
-		else{													//deleteItem else start
+		}else{
 			alert("Order was NOT deleted");
-		}														//deleteItem else end
-	};															//deleteItem End
+		}
+	}
 
-	function clearLocal(){										//clearLocal Start
-		if(localStorage.length === 0){							//clearLocal if Start
+	function clearLocal(){
+		if(localStorage.length === 0){
 			alert("There is no data to clear.");
 
-		}														//clearLocal if End
-		else{													//clearLocal else Start
+		}else{
 			localStorage.clear();
 			alert("Goodbye Hunger");
 			window.location.reload();
 			return false;
-		}														//clearLocal else End
-	};															//clearLocal End
+		}
+	}
 
-		//Click Event Function
-		$('#submit').on('click' , function(){ 				//Submit Click Event Start		
-			alert('working');
-			edit
-			return false;
-		};														//Submit Click Event End
 
-	/*var parseOrderForm = function(data){						//parseOrderForm Start
+
+	var parseOrderForm = function(data){
 	// uses form data here;
 	console.log(data);
-	};	*/														//parseOrderForm End
+};
 
-//validation
+$(document).ready(function(){
 
+	var oform = $('#form');
+	
 
-
-
-	oform.validate({											// Form Validation Start
-		invalidHandler: function(form, validator){				// invalidHandler Start
-
-					},											// invalidHandler End
-		submitHandler: function(){								//submitHandler Start
+	oform.validate({
+		invalidHandler: function(form, validator){
+			
+					},
+		submitHandler: function(){
 			var data = oform.serializeArray();
 			parseOrderForm(data);
-		}														//submitHandler End
+		}
+	});
 
 
-	});															//Form Validation End
+
+});
 
 
-});  				// End
+
+	/*function validate(e){
+		//define the elements we want to check
+		var getName = s('name');
+		var getEmail = s('email');
+		var getDate = s('date');
+		var getGroup = s('group');
+		
+		//Reset Error Messages
+		errMsg.innerHTML = "";
+			getGroup.style.border = "1 px solid black";
+			getName.style.border = "1 px solid black";
+			getEmail.style.border = "1 px solid black";
+			getDate.style.border = "1 px solid black";
+		//Get Error Message
+		var messageAry = [];
+		//Group Validation
+		if(getGroup.value ==="--Where to Eat--"){
+			var groupError = "Choose where to eat.";
+			getGroup.style.border = "1px solid red";
+			messageAry.push(groupError);
+		}
+		//Name Validation
+		if(getName.value ===""){
+			var nameError = "Please enter a name."
+			getName.style.border = "1 px solid red";
+			messageAry.push(nameError);
+		}
+		
+		//Email Validation
+		var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+		if(!(re.exec(getEmail.value))){
+			var emailError = "Please enter a valid email address.";
+			getEmail.style.border = "1px solid red";
+			messageAry.push(emailError);
+		}
+		//Date Validation
+		if(getDate.value ==="date"){
+		var dateError = "Enter a date";
+		getDate.style.border = "1 px solid red";
+		messageAry.push(dateError);
+		}
+		
+		//If there were errors, display them on the screen
+		if(messageAry.length >= 1){
+			for(var i = 0, j = messageAry.length; i < j; i++){
+				var txt = document.createElement('li');
+				txt.innerHTML = messageAry[i];
+				errMsg.appendChild(txt);
+			}
+			e.preventDefault();
+		return false;
+	}else{
+	//If all is OK, save our data! Send the key value (which came from the editData Function).
+	// Remember this key value was passed through the editSubmit event listener as a property.
+		storeData(this.key);
+	}
+		
+	}
+	
+	//Slider Value Displayed
+	function hungerLevel(){
+		hVal = s('hungry').value;
+			console.log(hVal);
+		var makeDiv = document.getElementById("hungerNum");
+		makeDiv.innerHTML = hVal;
+	}
+*/
+
+
+	//Variable defaults
+	var whereToEat = ["--Where to Eat--", "Sit Down", "Pick Up", "Delivery", "Cook Your Own"],
+		craveVaule,
+		faveValue = "No",
+		errMsg = s('errors');
+	//makeCats();
+
+	//Set Links & Submit Click Events
+	var displayLink = s('displayLink');
+	displayLink.addEventListener("click", getData);
+	var clearLink = s('clear');
+	clearLink.addEventListener("click", clearLocal); 
+	var save = s('submit');
+	//save.addEventListener("click", validate);
+	var hungerNum = s('hungry');
+	//hungerNum.addEventListener("change", hungerLevel);
+});
