@@ -1,19 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-<<<<<<< HEAD
-  <component name="IdProvider" IDEtalkID="D409AE4EB73CC7F6EFDDED48BB5A6BFB" />
+  <component name="IdProvider" IDEtalkID="DF58A9CF5543D2EF3B2D18040555DAA4" />
   <component name="ProjectResources">
     <default-html-doctype>http://www.w3.org/1999/xhtml</default-html-doctype>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" assert-keyword="true" jdk-15="true">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
-=======
-  <component name="IdProvider" IDEtalkID="13ABC8E0BCF4FC724F7527EC4FD59CE1" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" assert-keyword="true" jdk-15="true">
-    <output url="file://$PROJECT_DIR$/out" />
-  </component>
->>>>>>> origin/gh-pages
   <component name="WebServicesPlugin" addRequiredLibraries="true" />
   <component name="masterDetails">
     <states>
