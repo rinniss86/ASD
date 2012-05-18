@@ -1,7 +1,7 @@
 {
   "env": {
-    "local": {
-      "db": "http://user:password@127.0.0.1:5984/asdproject"
+    "default": {
+      "db": "http://127.0.0.1:5984/asdproject"
     },
     "cloudant": {
       "db": "https://rinniss86:catch22@rinniss86.cloudant.com/asdproject"

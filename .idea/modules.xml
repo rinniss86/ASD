@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/AppA/AppA.iml" filepath="$PROJECT_DIR$/AppA/AppA.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AppA/ASDCouch/app/_attachments/_attachments.iml" filepath="$PROJECT_DIR$/AppA/ASDCouch/app/_attachments/_attachments.iml" />
     </modules>
   </component>
 </project>
