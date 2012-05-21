@@ -9,17 +9,17 @@ $('#construction').live('pageinit', function () {
             success:function (resp) {                     //if we find the file properly- do this
                 console.log("This is my JSON: ", resp);
                 $.each(resp.rows, function (item, order) {
-                   // var name = orders.value.name;
-                   // var email = orders.value.email;
+                    var name = orders.value.name;
+                    var email = orders.value.email;
                     var age = orders.value.age;
                     var crave = orders.value.crave;
                     var fav = orders.value.fav;
                     var hunger = orders.value.hunger;
-                    //var date = orders.value.date;
-                   // var select = orders.value.select;
+                    var date = orders.value.date;
+                    var select = orders.value.select;
                     var comment = orders.value.comment;
                     $("#json").append(
-                        $('<li>').append(
+                        $('<ui>').append(
                             $('<a>').attr("href", "#").text(name)
                         )
                     )
