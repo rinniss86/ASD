@@ -8,7 +8,7 @@ $('#construction').live('pageinit', function () {
             dataType:'json', //what type of data?  this one is json
             success:function (resp) {                     //if we find the file properly- do this
                 console.log("This is my JSON: ", resp);
-                $.each(resp.rows, function (item, order) {
+                $.each(resp.rows, function (item, orders) {
                     var name = orders.value.name;
                     var email = orders.value.email;
                     var age = orders.value.age;
@@ -19,7 +19,7 @@ $('#construction').live('pageinit', function () {
                     var select = orders.value.select;
                     var comment = orders.value.comment;
                     $("#json").append(
-                        $('<ui>').append(
+                        $('<li>').append(
                             $('<a>').attr("href", "#").text(name)
                         )
                     )
