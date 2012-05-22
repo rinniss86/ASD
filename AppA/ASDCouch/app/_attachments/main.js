@@ -1,4 +1,7 @@
+var save = $('#submit');
+
 $('#order').live('pageinit', function () {
+	console.log("Form is Live");
 
     //getElementById Function
     /* function $(x) {
@@ -47,7 +50,11 @@ $('#order').live('pageinit', function () {
      }
      } */
 
-
+	save.on("click", function(){
+		console.log("It Saved");
+		storeData();
+	
+	})
     function storeData(key) {
 
         /* function getSelectedRadio() {
@@ -97,10 +104,10 @@ $('#order').live('pageinit', function () {
 
 
         //save to local storage: use stringify to convert
-        $('#submit').on("click", function () {
+        
             //localStorage.setItem(id, JSON.stringify(item));
             console.log("Form Submitted");
-        });
+        
 
     }
 
@@ -382,7 +389,7 @@ $('#order').live('pageinit', function () {
         //displayLink.addEventListener("click", getData);
         // var clearLink = $('#clear');
         // clearLink.addEventListener("click", clearLocal);
-        var save = $('#submit');
+        
         //save.addEventListener("click", validate);
         var hungerNum = $('#hungry');
         //hungerNum.addEventListener("change", hungerLevel);
