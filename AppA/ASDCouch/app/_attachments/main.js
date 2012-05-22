@@ -105,7 +105,7 @@ $('#order').live('pageinit', function () {
 
         //save to local storage: use stringify to convert
         
-            //localStorage.setItem(id, JSON.stringify(item));
+            localStorage.setItem(id, JSON.stringify(item));
             console.log("Form Submitted");
         
 
@@ -378,10 +378,10 @@ $('#order').live('pageinit', function () {
 
 
         //Variable defaults
-        var whereToEat = ["--Where to Eat--", "Sit Down", "Pick Up", "Delivery", "Cook Your Own"],
+        /*var whereToEat = ["--Where to Eat--", "Sit Down", "Pick Up", "Delivery", "Cook Your Own"],
             craveVaule,
             faveValue = "No",
-            errMsg = $('#errors');
+            errMsg = $('#errors'); */
         //makeCats();
 
         //Set Links & Submit Click Events
