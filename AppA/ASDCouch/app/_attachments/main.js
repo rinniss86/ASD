@@ -289,7 +289,7 @@ $('#order').live('pageinit', function () {
             console.log(data);
         };
 
-        $(document).ready(function () {
+
 
             var oform = $('#form');
 
@@ -305,7 +305,7 @@ $('#order').live('pageinit', function () {
             });
 
 
-        });
+
 
 
         /*function validate(e){
@@ -391,7 +391,7 @@ $('#order').live('pageinit', function () {
         // clearLink.addEventListener("click", clearLocal);
         
         //save.addEventListener("click", validate);
-        var hungerNum = $('#hungry');
+       // var hungerNum = $('#hungry');
         //hungerNum.addEventListener("change", hungerLevel);
     }
 })
