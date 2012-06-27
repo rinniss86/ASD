@@ -122,7 +122,7 @@ $('#order').live('pageinit', function(){
 				$('input:radio[name=crave]').checkboxradio("refresh");
 			}
 		
-		}
+		};
 		
 		//************ Get Check Box Value ************
 		
@@ -364,7 +364,7 @@ $('#order').live('pageinit', function(){
         });
 
 
-    //});
+    });
 
 
     //Variable defaults
