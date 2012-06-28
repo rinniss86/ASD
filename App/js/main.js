@@ -327,38 +327,34 @@ var parseOrderForm = function (data) {
     console.log(data);
 };
 
+var storeData - function(key){
+	oForm.validate();
+	if(oForm.valid()){
+	var id;
+	if(!key){
+		id = math.floor(Math.random()*9999999);
+	}
+	else{
+		id = key;
+	}
+	console.log(key);
+	
+	var item = {};
+	
+		item.name = ["Name: ", ($('#name').val())];
+        item.email = ["Email: ", ($('#email').val())];
+        item.age = ["Age: ", ($('#age').val())];
+        item.crave = ["Craving: ", getRadio()];
+        item.fav = ["Favorite? :", getCheckBoxValue()];
+        item.hunger = ["How Hungry: ", ($('#hungry').val())];
+        item.date = ["Date:", ($('#date').val())];
+        item.select = ["Where: ", ($('#select').val())];
+        item.comment = ["Instructions: ", ($('#instructions').val())];
+        
+        alert("Order Saved");
+	}
+};
 
-$(document).ready(function () {
-
-    var oform = $('#form');
-
-
-    oform.validate({
-        invalidHandler:function (form, validator) {
-
-        },
-        submitHandler:function () {
-            var data = oform.serializeArray();
-            parseOrderForm(data);
-        }
-    });
 
 
 });
-
-
-//Variable defaults
-
-//makeCat$();
-
-//Set Links & Submit Click Events
-//var displayLink = $('#displayLink');
-// displayLink.addEventListener("click", getData);
-// var clearLink = $('#clear');
-// clearLink.addEventListener("click", clearLocal);
-//  var save = $('#submit');
-//save.addEventListener("click", validate);
-var hungerNum = $('#hungry');
-//hungerNum.addEventListener("change", hungerLevel);
-})
-;
