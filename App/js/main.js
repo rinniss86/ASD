@@ -322,11 +322,6 @@ function clearLocal() {
 };
 
 
-var parseOrderForm = function (data) {
-    // uses form data here;
-    console.log(data);
-};
-
 var storeData = function(key){
 	oForm.validate();
 	if(oForm.valid()){
