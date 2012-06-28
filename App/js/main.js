@@ -327,7 +327,7 @@ var parseOrderForm = function (data) {
     console.log(data);
 };
 
-var storeData - function(key){
+var storeData = function(key){
 	oForm.validate();
 	if(oForm.valid()){
 	var id;
