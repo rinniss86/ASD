@@ -11,14 +11,19 @@ var whereToEat = ["--Where to Eat--", "Sit Down", "Pick Up", "Delivery", "Cook Y
 //Links and Submit Events
 var save = $('#submit');
 var displayLink = $('#displayLink');
-var clearLink = $('#clearLink');
+var clearLink = $('#clear');
 
 //********************** Main Function ***********************
 
 //********************* Form is Live ***************************
 $('#order').live('pageinit', function () {
     console.log("Form is Live");
-
+	
+	clearLink.on("click", function(){
+		console.log("Data Cleared");
+    	clearLocal();
+    });
+	
     save.on("click", function () {
         console.log("It Saved");
         storeData();
@@ -26,7 +31,7 @@ $('#order').live('pageinit', function () {
 
 
     displayLink.on("click", getData); // Displays Data when pressed
-    clearLink.on("click", clearLocal); // Clears Data when pressed
+    
 
     //toggleControl("on");
 
@@ -55,70 +60,60 @@ $('#order').live('pageinit', function () {
 
     //*********** Get Radio Value ************
     var getRadio = function () {
-        console.log($('input:radio[name=crave]:checked').val());
-        return($('input:radio[name=crave]:checked').val());
+        console.log($('input:radio[name=food]:checked').val());
+        return($('input:radio[name=food]:checked').val());
     };
 
     //******** Set Radio for Edit *********
     var setRadio = function (myRadio) {
-        if (myRadio === 'Chinese') {
-            console.log("Picked Chinese");
-            $('input:radio[name=crave]:nth(0)').attr('checked', true);
-            $('input:radio[name=crave]').checkboxradio("refresh");
-        }
-        else {
-            $('input:radio[name=crave]')[1].checked = true;
-            $('input:radio[name=crave]').checkboxradio("refresh");
-        }
+        if (myRadio === 'Chinese') food
+        else food
 
         if (myRadio === 'Spanish') {
             console.log("Picked Spanish");
-            $('input:radio[name=crave]:nth(0)').attr('checked', true);
-            $('input:radio[name=crave]').checkboxradio("refresh");
+            $('input:radio[name=food]:nth(0)').attr('checked', true);
+            $('input:radio[name=food]').checkboxradio("refresh");
         }
         else {
-            $('input:radio[name=crave]')[1].checked = true;
-            $('input:radio[name=crave]').checkboxradio("refresh");
+            $('input:radio[name=food]')[1].checked = true;
+            $('input:radio[name=food]').checkboxradio("refresh");
         }
 
         if (myRadio === 'Indian') {
             console.log("Picked Indian");
-            $('input:radio[name=crave]:nth(0)').attr('checked', true);
-            $('input:radio[name=crave]').checkboxradio("refresh");
+            $('input:radio[name=food]:nth(0)').attr('checked', true);
+            $('input:radio[name=food]').checkboxradio("refresh");
         }
-        else {
-            $('input:radio[name=crave]')[1].checked = true;
-            $('input:radio[name=crave]').checkboxradio("refresh");
-        }
+        else food
 
         if (myRadio === 'American') {
             console.log("Picked American");
-            $('input:radio[name=crave]:nth(0)').attr('checked', true);
-            $('input:radio[name=crave]').checkboxradio("refresh");
+            $('input:radio[name=food]:nth(0)').attr('checked', true);
+            $('input:radio[name=food]').checkboxradio("refresh");
         }
         else {
-            $('input:radio[name=crave]')[1].checked = true;
-            $('input:radio[name=crave]').checkboxradio("refresh");
+            $('input:radio[name=food]')[1].checked = true;
+            $('input:radio[name=food]').checkboxradio("refresh");
         }
 
         if (myRadio === 'Italian') {
             console.log("Picked Italian");
-            $('input:radio[name=crave]:nth(0)').attr('checked', true);
-            $('input:radio[name=crave]').checkboxradio("refresh");
+            $('input:radio[name=food]:nth(0)').attr('checked', true);
+            $('input:radio[name=food]').checkboxradio("refresh");
         }
         else {
-            $('input:radio[name=crave]')[1].checked = true;
-            $('input:radio[name=crave]').checkboxradio("refresh");
+            $('input:radio[name=food]')[1].checked = true;
+            $('input:radio[name=food]').checkboxradio("refresh");
         }
 
         if (myRadio === 'Other') {
             console.log("Picked Other");
-            $('input:radio[name=crave]:nth(0)').attr('checked', true);
-            $('input:radio[name=crave]').checkboxradio("refresh");
+            $('input:radio[name=food]:nth(0)').attr('checked', true);
+            $('input:radio[name=food]').checkboxradio("refresh");
         }
         else {
-            $('input:radio[name=crave]')[1].checked = true;
-            $('input:radio[name=crave]').checkboxradio("refresh");
+            $('input:radio[name=food]')[1].checked = true;
+            $('input:radio[name=food]').checkboxradio("refresh");
         }
 
     };
@@ -127,10 +122,10 @@ $('#order').live('pageinit', function () {
 
     var getCheckBoxValue = function () {
         console.log("Selected");
-        console.log($('input:checkbox[name=favorite]:checked').val());
+        console.log($('input:checkbox[id=fav]:checked').val());
 
-        if ($('input:checkbox[name=favorite]:checked').val() === "Yes") {
-            return($('input:checkbox[name=favorite]:checked').val());
+        if ($('input:checkbox[id=fav]:checked').val() === "Yes") {
+            return($('input:checkbox[id=fav]:checked').val());
         }
         else {
             return("No");
@@ -140,8 +135,8 @@ $('#order').live('pageinit', function () {
 	var setCheckBoxes = function (myBox){
 		console.log("box is: " + myBox);
 		if(myBox === "Yes"){
-			$('input[name=favorite]nth(0)').attr('checked', true);
-			$('input[name=favorite]').checkboxradio("refresh");
+			$('input[id=fav]nth(0)').attr('checked', true);
+			$('input[id=fav]').checkboxradio("refresh");
 		}
 	}
     
@@ -169,16 +164,17 @@ $('#order').live('pageinit', function () {
         for (var i = 0, len = localStorage.length; i < len; i++) {
             var makeLi = $("<li></li>"); // create list item
             var linksLi = $("<li></li>");// create list item
-            makeList.append(makeli);
+            makeList.append(makeLi);
             var key = localStorage.key(i);
             var value = localStorage.getItem(key);
             //Convert the string from local storage valueback to an object using JSON.parse()
             var obj = JSON.parse(value);
             var makeSubList = $('<ul></ul>');
-            makeli.append(makeSubList);
+            makeLi.append(makeSubList);
 
             //add pictures to items
-            getImage(obj.select[1], makeSubList);
+            console.log(obj);
+          //  getImage(obj.select[1], makeSubList);
             for (var n in obj) {
                 var optSubText = obj[n][0] + " " + obj[n][1];  //Separate label with value
                 var makeSubli = $("<li></li>");
@@ -194,7 +190,7 @@ $('#order').live('pageinit', function () {
     }
 
 
-}
+
 
 
 //Auto Populate Local Storage
@@ -206,7 +202,7 @@ function autoFillData(){
         localStorage.setItem(id, JSON.stringify(json[n]));
     }
     getData();
-    getData();
+    
 
 };
 // Adds Image to each item
@@ -214,7 +210,7 @@ var getImage = function(catName, makeSubList){      //image added to the item
 	var imageLi = $("<li></li>");					//create a list item for the image
 	makeSubList.append(imageLi);					//makeSubList is from getData
 	var newImg = $("<img />");						//add image tag
-	newImg.attr('src', "images/" + catname ".png");	//image name matches dropbox selection
+	newImg.attr('src', "images/" + catName + ".png");	//image name matches dropbox selection
 	imageLi.append(newImg);							//add image to the list
 
 };
@@ -248,14 +244,14 @@ var makeItemLinks = function (key, linksLi){
     	key: myKey,
     	class: ".deleteEntry"
     });
-	deleteLink.html(deleteText)label				//adds text to link
+	deleteLink.html(deleteText);				//adds text to link
 	linksLi.append(deleteLink);						//adds button to bottom of order
 	$('.deleteEntry', linksLi).on('click', function(){
 		deleteItem(myKey);
 	});
 };
 
-function deleteItem = function (myKey){
+	var deleteItem = function (myKey){
 	var ask = confirm("Are you sure you want to delete this order?");
 	
 	if(ask){										//if you clicked "ok"
@@ -285,7 +281,7 @@ function editItem() {
     	$('#fav').attr("checked", "checked");
     }
     console.log("its your fav: " + item.fav[1]);
-    setCheckBoxes.(item.fav);	
+    setCheckBoxes(item.fav);	
     $('#date').val(item.date[1]);
     $('#select').val(item.select[1]);
     $('#instructions').val(item.comment[1]);
@@ -310,6 +306,7 @@ function editItem() {
 
 
 function clearLocal() {
+	console.log("Clear Data Function Called");
     if (localStorage.length === 0) {
         alert("There is no data to clear.");
 
@@ -319,27 +316,28 @@ function clearLocal() {
         window.location.reload();
         return false;
     }
+    
 };
 
-
+var oForm = $('#form');
 var storeData = function(key){
 	oForm.validate();
 	if(oForm.valid()){
 	var id;
 	if(!key){
-		id = math.floor(Math.random()*9999999);
+		id = Math.floor(Math.random()*9999999);
 	}
 	else{
 		id = key;
 	}
-	console.log(key);
+	console.log(id);
 	
 	var item = {};
 	
 		item.name = ["Name: ", ($('#name').val())];
         item.email = ["Email: ", ($('#email').val())];
         item.age = ["Age: ", ($('#age').val())];
-        item.crave = ["Craving: ", getRadio()];
+        item.food = ["Craving: ", getRadio()];
         item.fav = ["Favorite? :", getCheckBoxValue()];
         item.hunger = ["How Hungry: ", ($('#hungry').val())];
         item.date = ["Date:", ($('#date').val())];
