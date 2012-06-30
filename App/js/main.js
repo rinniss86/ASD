@@ -146,8 +146,9 @@ $('#order').live('pageinit', function () {
         // toggleControl$("on");
         if (localStorage.length === 0) {
             alert("There is no data in Local Storage so default data was added.");
-            autoFillData();
+            localData();
         }
+        else{
         //Write Data from Local Storage to Browser.
         // Append an Unordered List
 
@@ -188,23 +189,25 @@ $('#order').live('pageinit', function () {
             makeItemLinks(localStorage.key(i), linksLi);
         }
     }
+	};
 
-
-
+function localData(){
+	for(var n in json){
+		var id = Math.floor(Math.random()*9999999);
+		localStorage.setItem(id, JSON.stringify(json[n]));
+	}
+	getData();
+};
 
 
 //Auto Populate Local Storage
-function autoFillData(){
+/*function autoFillData(){
     //The actual JSON OBJECT data required for this to work is coming from our json.js file, which is laoded from our HTML page
     //Store the JSON OBJECT into Local Storage.
-    for (var n in json){
-        var id = Math.floor(Math.random() * 9999999);
-        localStorage.setItem(id, JSON.stringify(json[n]));
-    }
-    getData();
+    
     
 
-};
+}; */
 // Adds Image to each item
 var getImage = function(catName, makeSubList){      //image added to the item
 	var imageLi = $("<li></li>");					//create a list item for the image
