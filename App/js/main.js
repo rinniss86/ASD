@@ -1,6 +1,6 @@
 //Rich Inniss
 //ASD 0712
-//Week 1
+//Week 1.
 
 //Variables
 var whereToEat = ["--Where to Eat--", "Sit Down", "Pick Up", "Delivery", "Cook Your Own"],
