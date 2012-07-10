@@ -194,7 +194,7 @@ $('#order').live('pageinit', function () {
     }
 
 
-}
+});
 
 
 //Auto Populate Local Storage
