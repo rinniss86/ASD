@@ -11,18 +11,19 @@ $('#others').live('pageinit', function(){
                 for (var i = 0, len = resp.request.length; i < len; i++) {
                     var item = resp.request[i];
                     console.log('Item is: ', item);
-                    $('#json').after(' ' +
-                        '<p>' + item.pName[1] +
-                        ', ' + item.email[1] +
-                        ', ' + item.age[1] +
-                        ', ' + item.crave[1] +
-                        ', ' + item.fav[1] +
-                        ', ' + item.hunger[1] +
-                        ', ' + item.date[1] +
-                        ', ' + item.select[1] +
-                        ', ' + item.comment[1] +
-                        '</p>');
+                    $('#listA').append(
+                        '<li>' + item.pName[1] + '</p>' +
+                        '<p> ' + item.email[1] + '</p>' +
+                        '<p> ' + item.age[1] + '</p>' +
+                        '<p> ' + item.crave[1] + '</p>' +
+                        '<p>' + item.fav[1] + '</p>' +
+                        '<p>' + item.hunger[1] + '</p>' +
+                        '<p>' + item.date[1] + '</p>' +
+                        '<p>' + item.select[1] + '</p>' +
+                        '<p>' + item.comment[1] + '</p>' +
+                        '</li>');
                 }
+                changePage("dataPage")
             }
         });
 
@@ -43,22 +44,22 @@ $('#others').live('pageinit', function(){
             itemList.comment        =   $(this).find("comment").text();
             console.log(itemList);
 
-            $('#xml').after(' ' +
-                '<p>' + itemList.pName +
-                ', ' + itemList.email +
-                ', ' + itemList.age +
-                ', ' + itemList.crave +
-                ', ' + itemList.fav +
-                ', ' + itemList.hunger +
-                ', ' + itemList.date +
-                ', ' + itemList.select +
-                ', ' + itemList.comment +
-                '</p>');
+            $('#listA').append(' ' +
+                '<li>' + itemList.pName + 
+                '<p> ' + itemList.email + '</p>' +
+                '<p>' + itemList.age + '</p>' +
+                '<p>' + itemList.crave + '</p>' +
+                '<p>' + itemList.fav + '</p>' +
+                '<p>' + itemList.hunger + '</p>' +
+                '<p>' + itemList.date + '</p>' +
+                '<p> ' + itemList.select + '</p>' +
+                '<p>' + itemList.comment + '</p>' +
+                '</li>');
 
 
 
         });
-
+		changePage("dataPage")
     };
 
     $('#xml').on("click", function(){
@@ -87,23 +88,29 @@ $('#others').live('pageinit', function(){
                     var columns = row.split(",");
                     console.log("CSV:", columns);
 
-                    $('#csv').after(''   +
+                    $('#listA').append('<li class="ui-li ui-li-static ui-body-a">'   +
                         '<p> Date Order: ' + columns[0] + 
-                        'Cook Your Own ' + columns[1] +
+                        ' Cook Your Own ' + columns[1] +
                         '&nbsp;&nbsp; Take Out' + columns[2] +
                         '&nbsp;&nbsp; Pick Up' + columns[3] +
                         '&nbsp;&nbsp; Delivery' + columns[4] +
-                        '&nbsp;&nbsp; Sit Down' + columns[5] +
-
-                        '</p>');
+                        '</p>' + '</li>');
 
 
 
 
                 }
+                changePage("dataPage")
             }
 
         })
     })
-
 });
+
+$('#dataPage').live('pageinit', function(){});
+
+var changePage = function(page){
+	console.log(page);
+    $('#listA').listview('refresh');
+	$.mobile.changePage($("#"+ page), {transition:"slide"});
+};
