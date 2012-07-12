@@ -44,22 +44,22 @@ $('#others').live('pageinit', function(){
             itemList.comment        =   $(this).find("comment").text();
             console.log(itemList);
 
-            $('#xml').after(' ' +
-                '<p>' + itemList.pName +
-                ', ' + itemList.email +
-                ', ' + itemList.age +
-                ', ' + itemList.crave +
-                ', ' + itemList.fav +
-                ', ' + itemList.hunger +
-                ', ' + itemList.date +
-                ', ' + itemList.select +
-                ', ' + itemList.comment +
-                '</p>');
+            $('#listA').append(' ' +
+                '<li>' + itemList.pName + 
+                '<p> ' + itemList.email + '</p>' +
+                '<p>' + itemList.age + '</p>' +
+                '<p>' + itemList.crave + '</p>' +
+                '<p>' + itemList.fav + '</p>' +
+                '<p>' + itemList.hunger + '</p>' +
+                '<p>' + itemList.date + '</p>' +
+                '<p> ' + itemList.select + '</p>' +
+                '<p>' + itemList.comment + '</p>' +
+                '</li>');
 
 
 
         });
-
+		changePage("dataPage")
     };
 
     $('#xml').on("click", function(){
@@ -88,20 +88,19 @@ $('#others').live('pageinit', function(){
                     var columns = row.split(",");
                     console.log("CSV:", columns);
 
-                    $('#csv').after(''   +
+                    $('#listA').append('<li class="ui-li ui-li-static ui-body-a">'   +
                         '<p> Date Order: ' + columns[0] + 
-                        'Cook Your Own ' + columns[1] +
+                        ' Cook Your Own ' + columns[1] +
                         '&nbsp;&nbsp; Take Out' + columns[2] +
                         '&nbsp;&nbsp; Pick Up' + columns[3] +
                         '&nbsp;&nbsp; Delivery' + columns[4] +
-                        '&nbsp;&nbsp; Sit Down' + columns[5] +
-
-                        '</p>');
+                        '</p>' + '</li>');
 
 
 
 
                 }
+                changePage("dataPage")
             }
 
         })
