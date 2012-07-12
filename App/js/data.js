@@ -11,18 +11,19 @@ $('#others').live('pageinit', function(){
                 for (var i = 0, len = resp.request.length; i < len; i++) {
                     var item = resp.request[i];
                     console.log('Item is: ', item);
-                    $('#json').after(' ' +
-                        '<p>' + item.pName[1] +
-                        ', ' + item.email[1] +
-                        ', ' + item.age[1] +
-                        ', ' + item.crave[1] +
-                        ', ' + item.fav[1] +
-                        ', ' + item.hunger[1] +
-                        ', ' + item.date[1] +
-                        ', ' + item.select[1] +
-                        ', ' + item.comment[1] +
-                        '</p>');
+                    $('#listA').append(
+                        '<li>' + item.pName[1] + '</p>' +
+                        '<p> ' + item.email[1] + '</p>' +
+                        '<p> ' + item.age[1] + '</p>' +
+                        '<p> ' + item.crave[1] + '</p>' +
+                        '<p>' + item.fav[1] + '</p>' +
+                        '<p>' + item.hunger[1] + '</p>' +
+                        '<p>' + item.date[1] + '</p>' +
+                        '<p>' + item.select[1] + '</p>' +
+                        '<p>' + item.comment[1] + '</p>' +
+                        '</li>');
                 }
+                changePage("dataPage")
             }
         });
 
@@ -105,5 +106,12 @@ $('#others').live('pageinit', function(){
 
         })
     })
-
 });
+
+$('#dataPage').live('pageinit', function(){});
+
+var changePage = function(page){
+	console.log(page);
+    $('#listA').listview('refresh');
+	$.mobile.changePage($("#"+ page), {transition:"slide"});
+};

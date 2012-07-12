@@ -444,9 +444,9 @@
     <div data-role="content">
         <ul data-role="listview" data-filter="true">
 
-	<a href="#" id="xml" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="a">XML</a>
-	<a href="#" id="json" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="a">JSON</a>
-	<a href="#" id="csv" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="a">CSV</a>
+	<a href="#dataPage" id="xml" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="a">XML</a>
+	<a href="#dataPage" id="json" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="a">JSON</a>
+	<a href="#dataPage" id="csv" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="a">CSV</a>
 	
 
 
@@ -581,9 +581,33 @@
 
     </div>
 
-
 </div>
 
+<div data-role="page" id="dataPage" data-add-back-btn="true" data-theme="b">
+    <div data-role="header">
+        <h1>DATA</h1>
+    </div>
+    <center><img src="images/OmNomNom.png"/></center>
+    <div data-role="content">
+    
+        <ul data-role="listview" id="listA" data-filter="true">
+        
+     </ul></div>   
+    <div data-role="footer" data-position="fixed" data-id="home">
+        <div data-role="navbar">
+            <ul>
+                <li><a href="https://github.com/rinniss86/MiU-Project" data-icon="info">GitHub Link</a></li>
+                <li><a href="http://rinniss86.github.com/MiU-Project/AppA/index.html" data-icon="gear">GH Live Code</a>
+                </li>
+                <li><a href="http://rinniss86.github.com/MiU-Project/AppB/index.html" data-icon="home">Other App</a>
+                </li>
+                <li><a href="#home" data-icon="home">Home</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+</div>
 
 <!-- JavaScript Here -->
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
