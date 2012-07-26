@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+
+    <title>Food! OM NOM NOM!</title>
+
+    <!--  Mobile viewport optimized: j.mp/bplateviewport -->
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Mobile IE needs ClearType for smoothing fonts -->
+    <meta http-equiv="cleartype" content="on">
+
+    <!-- StyleSheets under here -->
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="http://dev.jtsage.com/cdn/datebox/latest/jquery.mobile.datebox.min.css"/>
+
+    <link rel="stylesheet" href="css/style.css"/>
+
+    <!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
+    <script src="libs/modernizr.custom.min.js"></script>
+
+</head>
+<body>
+
+<div data-role="page" id="editPage" data-theme="b">
+    <div data-role="header" data-position="inline" data-theme="b">
+    	<div>
+    		<img src="images/OmNomNom.png"/>
+    	</div>
+   		<a href="#" data-rel="back" data-icon="back" data-icon="notext" data-theme="c"></a>
+    	<a href="index.html#form" data-ajax="false" id="addItem" data-icon="plus" data-iconpos="notext" data-theme="c" class="ui-btn-right"></a>
+    </div>
+    <h3>Click the text you want to edit</h3>
+    <hr/>
+    <form>
+	<div>
+	
+		<label class="left">Name: </label> <p id="eName" class="editable">Click to edit Name</p>
+		<label class="left">Age: </label> <p id="eAge" class="editable">Click to edit Age</p>
+		<label class="left">Craving: </label> <p id="eCraving" class="editable">Click to edit Craving</p>
+		<label class="left">Favorite: </label> <p id="eFavorite" class="editable">Click to edit Favorite</p>
+		<label class="left">How Hungry: </label> <p id="eHungry" class="editable">Click to edit Hunger Level</p>
+		<label class="left">Date: </label> <p id="eDate" class="editable">Click to edit Date</p>
+		<label class="left">Where to Eat: </label> <p id="eSelect" class="editable">Click to edit Where</p>
+		<label class="left">Special Instructions: </label> <p id="eComment" class="editable">Click to edit Instructions</p>
+		<hr/>
+	</div>
+</form>
+	<div data-role="controlgroup">
+		<input type="submit" id="update" value="Save" data-icon="arrow-r" data-iconpos="right" data-theme="b"/>
+		<input type="button" id="remove" value="Delete" data-icon="arrow-r" data-iconpos="right" data-theme="e"/>
+	</div>
+
+</div>
+
+
+
+
+<!-- JavaScript Here -->
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jquery.mobile.datebox.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/i8n/jquery.mobile.datebox.i8n.en.js"></script>
+	<script type="text/javascript" src="libs/jquery.validate.min.js"></script> 
+	<script type="text/javascript" src="jquery.couch.js"></script>
+	<script type="text/javascript" src="json.js"></script>
+	<script type="text/javascript" src="data.js"></script>
+	<script type="text/javascript" src="main.js"></script>
+</body>
+
+
+</html>

@@ -1,7 +1,6 @@
 var json = {
 	"order1":{
 		"name": ["Name:", "Rich"],
-		"email": ["Email:", "rinniss86@fullsail.edu"],
 		"age": ["Age:", "25"],
 		"crave": ["Craving:", "chinese"],
 		"fav": ["Favorite?:", "Yes"],
@@ -12,7 +11,6 @@ var json = {
 	},
 	"order2":{
 		"name": ["Name:", "Alli"],
-		"email": ["Email:", "alligootz@msn.com"],
 		"age": ["Age:", "26"],
 		"crave": ["Craving:", "spanish"],
 		"fav": ["Favorite?:", "no"],
@@ -23,7 +21,6 @@ var json = {
 	},
 	"order3":{
 		"name": ["Name:", "Brian"],
-		"email": ["Email:", "brianrocks@aol.com"],
 		"age": ["Age:", "26"],
 		"crave": ["Craving:", "american"],
 		"fav": ["Favorite?:", "Yes"],
@@ -34,7 +31,6 @@ var json = {
 	},
 	"order4":{
 		"name": ["Name:", "Joe"],
-		"email": ["Email:", "joe@aol.com"],
 		"age": ["Age:", "43"],
 		"crave": ["Craving:", "italian"],
 		"fav": ["Favorite?:", "Yes"],
@@ -45,7 +41,6 @@ var json = {
 	},
 	"order5":{
 		"name": ["Name:", "Alison"],
-		"email": ["Email:", "Ali@aol.com"],
 		"age": ["Age:", "14"],
 		"crave": ["Craving:", "spanish"],
 		"fav": ["Favorite?:", "no"],
@@ -56,7 +51,6 @@ var json = {
 	},
 	"order6":{
 		"name": ["Name:", "Bryan"],
-		"email": ["Email:", "ZOMG@aol.com"],
 		"age": ["Age:", "25"],
 		"crave": ["Craving:", "other"],
 		"fav": ["Favorite?:", "no"],
@@ -67,7 +61,6 @@ var json = {
 	},
 	"order7":{
 		"name": ["Name:", "Lisa"],
-		"email": ["Email:", "LisaLoops@aol.com"],
 		"age": ["Age:", "24"],
 		"crave": ["Craving:", "spanish"],
 		"fav": ["Favorite?:", "Yes"],
@@ -78,7 +71,6 @@ var json = {
 	},
 	"order8":{
 		"name": ["Name:", "Sam"],
-		"email": ["Email:", "SamWise@yahoo.com"],
 		"age": ["Age:", "29"],
 		"crave": ["Craving:", "american"],
 		"fav": ["Favorite?:", "no"],
@@ -89,7 +81,6 @@ var json = {
 	},	
 	"order9":{
 		"name": ["Name:", "Felicity"],
-		"email": ["Email:", "FullofIT@yahoo.com"],
 		"age": ["Age:", "26"],
 		"crave": ["Craving:", "chinese"],
 		"fav": ["Favorite?:", "Yes"],
@@ -100,7 +91,6 @@ var json = {
 	},	
 	"order10":{
 		"name": ["Name:", "Jenny"],
-		"email": ["Email:", "jBlock@yahoo.com"],
 		"age": ["Age:", "32"],
 		"crave": ["Craving:", "indian"],
 		"fav": ["Favorite?:", "no"],
@@ -111,7 +101,6 @@ var json = {
 	},
 	"order11":{
 		"name": ["Name:", "George"],
-		"email": ["Email:", "george@fullsail.edu"],
 		"age": ["Age:", "56"],
 		"crave": ["Craving:", "chinese"],
 		"fav": ["Favorite?:", "Yes"],
@@ -122,7 +111,6 @@ var json = {
 	},
 	"order12":{
 		"name": ["Name:", "Bobby"],
-		"email": ["Email:", "BFLAY@msn.com"],
 		"age": ["Age:", "21"],
 		"crave": ["Craving:", "spanish"],
 		"fav": ["Favorite?:", "no"],
@@ -133,7 +121,6 @@ var json = {
 	},
 	"order13":{
 		"name": ["Name:", "Jesus"],
-		"email": ["Email:", "JFish@aol.com"],
 		"age": ["Age:", "13"],
 		"crave": ["Craving:", "american"],
 		"fav": ["Favorite?:", "Yes"],
@@ -144,7 +131,6 @@ var json = {
 	},
 	"order14":{
 		"name": ["Name:", "Jerry"],
-		"email": ["Email:", "JWood@opt.com"],
 		"age": ["Age:", "41"],
 		"crave": ["Craving:", "italian"],
 		"fav": ["Favorite?:", "Yes"],
@@ -155,7 +141,6 @@ var json = {
 	},
 	"order15":{
 		"name": ["Name:", "Barry"],
-		"email": ["Email:", "Bmudz78@aol.com"],
 		"age": ["Age:", "67"],
 		"crave": ["Craving:", "spanish"],
 		"fav": ["Favorite?:", "no"],
@@ -166,7 +151,6 @@ var json = {
 	},
 	"order16":{
 		"name": ["Name:", "Erin"],
-		"email": ["Email:", "ringer8976@aol.com"],
 		"age": ["Age:", "16"],
 		"crave": ["Craving:", "other"],
 		"fav": ["Favorite?:", "Yes"],
@@ -177,7 +161,6 @@ var json = {
 	},
 	"order17":{
 		"name": ["Name:", "Cindy"],
-		"email": ["Email:", "CindyHorsey123@aol.com"],
 		"age": ["Age:", "18"],
 		"crave": ["Craving:", "spanish"],
 		"fav": ["Favorite?:", "Yes"],
@@ -188,7 +171,6 @@ var json = {
 	},
 	"order18":{
 		"name": ["Name:", "Kim"],
-		"email": ["Email:", "Kimypoo@yahoo.com"],
 		"age": ["Age:", "65"],
 		"crave": ["Craving:", "american"],
 		"fav": ["Favorite?:", "Yes"],
@@ -199,7 +181,6 @@ var json = {
 	},	
 	"order19":{
 		"name": ["Name:", "Jessica"],
-		"email": ["Email:", "JayLady12453@yahoo.com"],
 		"age": ["Age:", "31"],
 		"crave": ["Craving:", "chinese"],
 		"fav": ["Favorite?:", "Yes"],
@@ -210,7 +191,6 @@ var json = {
 	},	
 	"order20":{
 		"name": ["Name:", "Mike"],
-		"email": ["Email:", "MikeBoom@yahoo.com"],
 		"age": ["Age:", "30"],
 		"crave": ["Craving:", "italian"],
 		"fav": ["Favorite?:", "yes"],

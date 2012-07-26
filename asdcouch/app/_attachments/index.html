@@ -280,8 +280,8 @@
         <h1> Om Nom Nom!</h1>
     </div>
     <center><img src="images/OmNomNom.png"/></center>
-    <a href="#" id="clear" data-role="button" data-icon="delete" data-iconpos="right" data-theme="a">Clear Stored Data</a>
-    <a href="#" id="displayLink" data-role="button" data-icon="search" data-iconpos="right" data-theme="b">Display Data</a>
+    <!--<a href="#" id="clear" data-role="button" data-icon="delete" data-iconpos="right" data-theme="a">Clear Stored Data</a>-->
+    <a href="#dataPage" id="displayLink" data-role="button" data-icon="search" data-iconpos="right" data-theme="b">Display Data</a>
     <a href="#dataPage" id="json" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="b">Other Orders</a>
     <a href="#order" id="addNew" data-role="button" data-icon="plus" data-iconpos="right" data-theme="c">Add New Craving</a>
    
@@ -295,12 +295,12 @@
             <label for="name">Name*:</label>
             <input type="text" name="name" id="name" class="required"/>
         </div>
-        <div data-role="fieldcontain">
+     <!--   <div data-role="fieldcontain">
 
             <label for="email">E-mail*:</label>
             <input type="email" name="email" id="email" class="required email" placeholder="example@abc123.com"/>
-        </div>
-        <div data-role="fieldcontain">
+        </div>-->
+        <div data-role="fieldcontain"> 
 
             <label for="age">Age*:</label>
             <input type="text" name="age" id="age" class="required number"/>
@@ -500,6 +500,7 @@
 <script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jquery.mobile.datebox.min.js"></script>
 <script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/i8n/jquery.mobile.datebox.i8n.en.js"></script>
 <script type="text/javascript" src="libs/jquery.validate.min.js"></script>
+<script type="text/javascript" src="jquery.couch.js"></script>
 <script type="text/javascript" src="json.js"></script>
 <script type="text/javascript" src="data.js"></script>
 <script type="text/javascript" src="main.js"></script>
