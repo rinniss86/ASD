@@ -31,6 +31,7 @@ $('#order').live('pageinit', function () {
                     '<p>' + item.value.date + '</p>' + 
                     '<p>' + item.value.select + '</p>' + 
                     '<p>' + item.value.comment + '</p>' + 
+                    '<a data-role="button" href="edit.html?_id=' + item.id + '">Edit/Delete</a>' +
                     '</li>');
 
                 });
@@ -114,6 +115,13 @@ $('#editPage').live('pageshow', function(){
 		
 	}//close deleteOrder
 	
+	$('#remove').on("click", function(){
+		console.log("remove this: ", orderID);
+			deleteOrder(orderID);
+			$.mobile.changePage("index.html#dataPage", {transition: "slideup"})
+	
+	})//close remove click
+	
 	//****************Save the new information
 		$('#update').on("click", function(){
 			
@@ -137,7 +145,7 @@ $('#editPage').live('pageshow', function(){
 				success: function(data){
 					console.log("We've got TIGER BLOOD! Winning!");
 					console.log(status);
-					$.mobile.changePage("index.html", {transition: "slidedown"});
+					$.mobile.changePage("index.html#dataPage", {transition: "slidedown"});
 				}//close success
 			}); //close couch call
 			

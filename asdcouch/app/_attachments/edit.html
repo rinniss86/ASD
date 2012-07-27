@@ -27,27 +27,23 @@
 </head>
 <body>
 
-<div data-role="page" id="editPage" data-theme="b">
-    <div data-role="header" data-position="inline" data-theme="b">
-    	<div>
-    		<img src="images/OmNomNom.png"/>
-    	</div>
-   		<a href="#" data-rel="back" data-icon="back" data-icon="notext" data-theme="c"></a>
-    	<a href="index.html#form" data-ajax="false" id="addItem" data-icon="plus" data-iconpos="notext" data-theme="c" class="ui-btn-right"></a>
+<div data-role="page" id="editPage" data-add-back-btn="true" data-theme="b">
+    <div data-role="header">   	
+    		<center><img src="images/OmNomNom.png"/></center>
     </div>
     <h3>Click the text you want to edit</h3>
     <hr/>
     <form>
 	<div>
 	
-		<label class="left">Name: </label> <p id="eName" class="editable">Click to edit Name</p>
-		<label class="left">Age: </label> <p id="eAge" class="editable">Click to edit Age</p>
-		<label class="left">Craving: </label> <p id="eCraving" class="editable">Click to edit Craving</p>
-		<label class="left">Favorite: </label> <p id="eFavorite" class="editable">Click to edit Favorite</p>
-		<label class="left">How Hungry: </label> <p id="eHungry" class="editable">Click to edit Hunger Level</p>
-		<label class="left">Date: </label> <p id="eDate" class="editable">Click to edit Date</p>
-		<label class="left">Where to Eat: </label> <p id="eSelect" class="editable">Click to edit Where</p>
-		<label class="left">Special Instructions: </label> <p id="eComment" class="editable">Click to edit Instructions</p>
+		<label>Name: </label> <p id="eName" class="editable">Click to edit Name</p>
+		<label>Age: </label> <p id="eAge" class="editable">Click to edit Age</p>
+		<label>Craving: </label> <p id="eCraving" class="editable">Click to edit Craving</p>
+		<label>Favorite: </label> <p id="eFavorite" class="editable">Click to edit Favorite</p>
+		<label>How Hungry: </label> <p id="eHungry" class="editable">Click to edit Hunger Level</p>
+		<label>Date: </label> <p id="eDate" class="editable">Click to edit Date</p>
+		<label>Where to Eat: </label> <p id="eSelect" class="editable">Click to edit Where</p>
+		<label>Special Instructions: </label> <p id="eComment" class="editable">Click to edit Instructions</p>
 		<hr/>
 	</div>
 </form>

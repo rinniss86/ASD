@@ -142,16 +142,18 @@ var storeData = function (key) {
             '_id': 'order:' + id
         };
 
-        item.name = ["Name: ", ($('#name').val())];
+        item.name = ["Name: " + ($('#name').val())];
         //item.email = ["Email: ", ($('#email').val())];
-        item.age = ["Age: ", ($('#age').val())];
-        item.crave = ["Craving: ", getRadio()];
-        item.fav = ["Favorite? :", getCheckBoxValue()];
-        item.hunger = ["How Hungry: ", ($('#hungry').val())];
-        item.date = ["Date:", ($('#date').val())];
-        item.select = ["Where: ", ($('#select').val())];
-        item.comment = ["Instructions: ", ($('#instructions').val())];
-
+        item.age = ["Age: " + ($('#age').val())];
+        item.crave = ["Craving: " + getRadio()];
+        item.fav = ["Favorite? :" + getCheckBoxValue()];
+        item.hunger = ["How Hungry: " + ($('#hungry').val())];
+        item.date = ["Date:" + ($('#date').val())];
+        item.select = ["Where: " + ($('#select').val())];
+        item.comment = ["Instructions: " + ($('#instructions').val())];
+		
+		
+		
         $.couch.db('asdproject').saveDoc(item, {
             success: function (data) {
                 console.log(status);
